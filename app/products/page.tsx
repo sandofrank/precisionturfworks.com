@@ -74,7 +74,7 @@ export default function ProductsPage() {
       <PageHero
         title="Products We Install"
         subtitle="Browse our complete selection of premium artificial turf from our trusted suppliers"
-        image="/images/residential-header-turf.jpg"
+        image="/images/proj4-header.jpg"
       />
 
       {/* Filter Bar */}

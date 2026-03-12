@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CITIES, getCityBySlug, getAllCitySlugs } from '@/lib/cities';
+import { FAQSchema, BreadcrumbSchema } from '@/components/StructuredData';
 
 
 export function generateStaticParams() {
@@ -78,6 +79,31 @@ const benefits = [
   'Increases property value and curb appeal',
 ];
 
+function getCityFAQs(cityName: string) {
+  return [
+    {
+      question: `How much does artificial turf installation cost in ${cityName}?`,
+      answer: `The cost of artificial turf installation in ${cityName} varies based on the size of the area, turf product selected, and site preparation needed. Most residential projects range from $8–$15 per square foot installed. Contact us for a free, no-obligation quote tailored to your specific project.`,
+    },
+    {
+      question: `How long does artificial turf last in ${cityName}'s climate?`,
+      answer: `Premium artificial turf installed by Precision Turf Works typically lasts 15–20 years in ${cityName}'s climate. The Inland Empire's warm, dry weather is actually ideal for synthetic turf — no freeze-thaw cycles or excessive moisture to worry about.`,
+    },
+    {
+      question: `Is artificial turf safe for pets and children in ${cityName}?`,
+      answer: `Absolutely. All of our turf products are non-toxic, lead-free, and designed with safety in mind. Pet turf options feature enhanced drainage for easy cleanup, and our playground turf meets ASTM safety standards for fall protection.`,
+    },
+    {
+      question: `Do you offer free estimates in ${cityName}?`,
+      answer: `Yes! We provide free on-site estimates throughout ${cityName} and the surrounding Inland Empire area. Our team will assess your space, discuss your goals, and provide a detailed quote — no pressure, no obligation.`,
+    },
+    {
+      question: `Does artificial turf help with water conservation in ${cityName}?`,
+      answer: `Yes — switching to artificial turf can save the average ${cityName} homeowner 30,000–50,000 gallons of water per year. Many local water districts also offer rebates for replacing natural grass with synthetic turf, which can offset a portion of your installation cost.`,
+    },
+  ];
+}
+
 export default async function CityPage({
   params,
 }: {
@@ -88,9 +114,18 @@ export default async function CityPage({
   if (!city) notFound();
 
   const otherCities = CITIES.filter((c) => c.slug !== slug).slice(0, 8);
+  const faqs = getCityFAQs(city.name);
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://precisionturfworks.com' },
+          { name: 'Service Areas', url: 'https://precisionturfworks.com/service-areas' },
+          { name: city.name, url: `https://precisionturfworks.com/service-areas/${slug}` },
+        ]}
+      />
+      <FAQSchema faqs={faqs} />
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center overflow-hidden">
         <Image
@@ -227,6 +262,60 @@ export default async function CityPage({
                 </span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-semibold text-ptw-green tracking-wider uppercase leading-[0.95] text-center mb-4 animate-fade-up">
+            Frequently Asked Questions
+          </h2>
+          <div className="section-divider mt-4 mb-12 animate-fade-up delay-100" />
+          <div className="space-y-6">
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                className={`bg-ptw-cream rounded-xl p-6 sm:p-8 animate-fade-up delay-${(i + 1) * 100}`}
+              >
+                <h3 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-ptw-deep tracking-wide uppercase mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-20 sm:py-28 overflow-hidden">
+        <Image
+          src={city.heroImage}
+          alt={`Get a quote for turf installation in ${city.name}`}
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="hero-overlay absolute inset-0" />
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-wider uppercase leading-[0.95] mb-4 animate-fade-up">
+            Ready to Transform Your {city.name} Property?
+          </h2>
+          <div className="section-divider mt-4 mb-8 animate-fade-up delay-100" />
+          <p className="text-lg text-white/90 leading-relaxed mb-8 animate-fade-up delay-200">
+            Get a free, no-obligation estimate for your artificial turf project. Our team serves {city.name} and {city.nearbyAreas}.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up delay-300">
+            <Link href="/get-a-quote" className="btn-primary">
+              Get a Free Quote
+            </Link>
+            <Link href="/gallery" className="btn-outline">
+              View Our Work
+            </Link>
           </div>
         </div>
       </section>
