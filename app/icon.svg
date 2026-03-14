@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1f0d"/>
+      <stop offset="100%" stop-color="#1a3d1a"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#1a6b35"/>
+      <stop offset="100%" stop-color="#2d8a4e"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#228b3a"/>
+      <stop offset="100%" stop-color="#4db86a"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#124a24"/>
+      <stop offset="100%" stop-color="#1a6b35"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <!-- PTW text - centered in upper portion -->
+  <text x="256" y="235" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="190" fill="white" text-anchor="middle" dominant-baseline="central" letter-spacing="-6">PTW</text>
+  <!-- Subtle gold ground line -->
+  <line x1="30" y1="365" x2="482" y2="365" stroke="#c4952b" stroke-width="2" opacity="0.4"/>
+  <!-- Back grass layer - tall scattered blades -->
+  <g fill="url(#g3)" opacity="0.6">
+    <path d="M25,512 L25,512 Q30,380 35,355 Q40,380 45,512Z"/>
+    <path d="M65,512 Q70,365 78,330 Q86,365 90,512Z"/>
+    <path d="M110,512 Q116,375 122,348 Q128,375 134,512Z"/>
+    <path d="M158,512 Q164,370 170,338 Q176,370 182,512Z"/>
+    <path d="M205,512 Q212,380 218,355 Q224,380 230,512Z"/>
+    <path d="M255,512 Q261,360 268,328 Q275,360 280,512Z"/>
+    <path d="M300,512 Q308,375 315,345 Q322,375 328,512Z"/>
+    <path d="M350,512 Q356,368 362,335 Q368,368 374,512Z"/>
+    <path d="M395,512 Q402,378 408,350 Q414,378 420,512Z"/>
+    <path d="M440,512 Q448,370 455,340 Q462,370 468,512Z"/>
+    <path d="M478,512 Q483,382 488,358 Q493,382 498,512Z"/>
+  </g>
+  <!-- Middle grass layer -->
+  <g fill="url(#g1)">
+    <path d="M15,512 Q22,400 28,375 Q34,400 42,512Z"/>
+    <path d="M48,512 Q55,390 62,360 Q69,390 76,512Z"/>
+    <path d="M85,512 Q93,395 100,368 Q107,395 115,512Z"/>
+    <path d="M125,512 Q132,385 140,355 Q148,385 155,512Z"/>
+    <path d="M168,512 Q175,392 182,362 Q189,392 196,512Z"/>
+    <path d="M208,512 Q215,388 222,358 Q229,388 238,512Z"/>
+    <path d="M245,512 Q253,395 260,365 Q267,395 275,512Z"/>
+    <path d="M285,512 Q293,385 300,352 Q307,385 315,512Z"/>
+    <path d="M325,512 Q332,390 340,360 Q348,390 356,512Z"/>
+    <path d="M365,512 Q372,388 380,355 Q388,388 395,512Z"/>
+    <path d="M405,512 Q413,395 420,370 Q427,395 435,512Z"/>
+    <path d="M445,512 Q452,388 458,358 Q464,388 472,512Z"/>
+    <path d="M480,512 Q485,395 490,372 Q495,395 500,512Z"/>
+  </g>
+  <!-- Front grass layer - brightest, shorter -->
+  <g fill="url(#g2)">
+    <path d="M8,512 Q14,420 20,398 Q26,420 32,512Z"/>
+    <path d="M38,512 Q45,415 52,390 Q59,415 66,512Z"/>
+    <path d="M72,512 Q80,422 88,400 Q96,422 103,512Z"/>
+    <path d="M112,512 Q119,418 126,392 Q133,418 140,512Z"/>
+    <path d="M148,512 Q156,425 163,402 Q170,425 178,512Z"/>
+    <path d="M186,512 Q193,415 200,388 Q207,415 215,512Z"/>
+    <path d="M222,512 Q230,420 238,395 Q246,420 253,512Z"/>
+    <path d="M262,512 Q269,418 276,392 Q283,418 292,512Z"/>
+    <path d="M300,512 Q307,422 315,398 Q323,422 330,512Z"/>
+    <path d="M338,512 Q346,415 354,388 Q362,415 370,512Z"/>
+    <path d="M378,512 Q385,420 392,395 Q399,420 408,512Z"/>
+    <path d="M415,512 Q422,418 430,395 Q438,418 445,512Z"/>
+    <path d="M452,512 Q460,422 468,400 Q476,422 484,512Z"/>
+    <path d="M490,512 Q495,425 500,405 Q505,425 510,512Z"/>
+  </g>
+</svg>
