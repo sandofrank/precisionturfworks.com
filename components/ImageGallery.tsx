@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 interface ImageGalleryProps {
@@ -19,6 +19,37 @@ export default function ImageGallery({ images, columns = 3 }: ImageGalleryProps)
   const next = useCallback(() => {
     setLightboxIndex((i) => (i !== null ? (i + 1) % images.length : null));
   }, [images.length]);
+
+  const lightboxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'Escape':
+          closeLightbox();
+          break;
+        case 'ArrowLeft':
+          prev();
+          break;
+        case 'ArrowRight':
+          next();
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    // Focus the lightbox container for screen readers
+    lightboxRef.current?.focus();
+    // Prevent background scroll
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [lightboxIndex, closeLightbox, prev, next]);
 
   const gridCols = columns === 2 ? 'grid-cols-1 sm:grid-cols-2' : columns === 4 ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
 
@@ -50,7 +81,12 @@ export default function ImageGallery({ images, columns = 3 }: ImageGalleryProps)
       {/* Lightbox */}
       {lightboxIndex !== null && (
         <div
-          className="fixed inset-0 z-[100] lightbox-backdrop flex items-center justify-center p-4"
+          ref={lightboxRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Photo ${lightboxIndex + 1} of ${images.length}`}
+          tabIndex={-1}
+          className="fixed inset-0 z-[100] lightbox-backdrop flex items-center justify-center p-4 outline-none"
           onClick={closeLightbox}
         >
           <button
