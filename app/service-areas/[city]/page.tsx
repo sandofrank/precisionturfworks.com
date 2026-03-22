@@ -208,7 +208,7 @@ export default async function CityPage({
             {benefits.map((benefit, i) => (
               <div
                 key={benefit}
-                className={`flex items-center gap-4 bg-ptw-cream rounded-xl p-6 shadow-sm animate-fade-up delay-${(i + 1) * 100}`}
+                className={`flex items-center gap-4 bg-ptw-cream rounded-xl p-6 shadow-sm animate-fade-up delay-${((i % 5) + 1) * 100}`}
               >
                 <div className="shrink-0 w-10 h-10 rounded-full bg-ptw-green flex items-center justify-center">
                   <svg className="w-5 h-5 text-ptw-gold" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
@@ -243,7 +243,7 @@ export default async function CityPage({
               <Link
                 key={service.title}
                 href={service.href}
-                className={`group card-lift bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:bg-white/20 transition-colors animate-fade-up delay-${(i + 1) * 100}`}
+                className={`group card-lift bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:bg-white/20 transition-colors animate-fade-up delay-${((i % 5) + 1) * 100}`}
               >
                 <div className="text-ptw-gold mb-4">
                   {service.icon}
@@ -277,7 +277,7 @@ export default async function CityPage({
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`bg-ptw-cream rounded-xl p-6 sm:p-8 animate-fade-up delay-${(i + 1) * 100}`}
+                className={`bg-ptw-cream rounded-xl p-6 sm:p-8 animate-fade-up delay-${((i % 5) + 1) * 100}`}
               >
                 <h3 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-ptw-deep tracking-wide uppercase mb-3">
                   {faq.question}

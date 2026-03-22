@@ -140,7 +140,7 @@ export default function CommercialPage() {
             {benefits.map((benefit, idx) => (
               <div
                 key={benefit.title}
-                className={`card-lift bg-ptw-cream rounded-lg p-8 border border-ptw-cream-dark animate-fade-up delay-${(idx + 1) * 100}`}
+                className={`card-lift bg-ptw-cream rounded-lg p-8 border border-ptw-cream-dark animate-fade-up delay-${((idx % 5) + 1) * 100}`}
               >
                 <div className="w-14 h-14 rounded-full bg-ptw-green/10 flex items-center justify-center text-ptw-gold mb-5">
                   {benefit.icon}
@@ -167,7 +167,7 @@ export default function CommercialPage() {
 
           <div className="space-y-12">
             {steps.map((step, idx) => (
-              <div key={step.title} className={`flex gap-6 items-start animate-fade-up delay-${(idx + 1) * 100}`}>
+              <div key={step.title} className={`flex gap-6 items-start animate-fade-up delay-${((idx % 5) + 1) * 100}`}>
                 <div className="shrink-0 w-12 h-12 rounded-full bg-ptw-gold flex items-center justify-center">
                   <span className="font-[family-name:var(--font-heading)] text-lg font-semibold text-ptw-deep">
                     {idx + 1}
@@ -197,7 +197,7 @@ export default function CommercialPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
             {applications.map((app, idx) => (
-              <div key={app} className={`flex items-center gap-3 animate-fade-up delay-${(idx + 1) * 100}`}>
+              <div key={app} className={`flex items-center gap-3 animate-fade-up delay-${((idx % 5) + 1) * 100}`}>
                 <svg className="w-5 h-5 text-ptw-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>

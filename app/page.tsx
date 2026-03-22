@@ -152,7 +152,7 @@ export default function Home() {
             {whyChooseUs.map((item, i) => (
               <div
                 key={item.title}
-                className={`card-lift bg-white rounded-xl p-6 sm:p-8 text-center shadow-sm animate-fade-up delay-${(i + 1) * 100}`}
+                className={`card-lift bg-white rounded-xl p-6 sm:p-8 text-center shadow-sm animate-fade-up delay-${((i % 5) + 1) * 100}`}
               >
                 <div className="text-ptw-gold mb-4 flex justify-center">
                   {item.icon}
@@ -191,7 +191,7 @@ export default function Home() {
               <Link
                 key={service.title}
                 href={service.link}
-                className={`group card-lift bg-white rounded-xl overflow-hidden shadow-lg animate-fade-up delay-${(i + 1) * 100}`}
+                className={`group card-lift bg-white rounded-xl overflow-hidden shadow-lg animate-fade-up delay-${((i % 5) + 1) * 100}`}
               >
                 <div className="img-zoom aspect-[4/3] relative">
                   <Image

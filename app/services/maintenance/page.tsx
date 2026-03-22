@@ -131,7 +131,7 @@ export default function MaintenancePage() {
             {practices.map((practice, idx) => (
               <div
                 key={practice.title}
-                className={`card-lift bg-white rounded-lg p-8 border border-ptw-cream-dark animate-fade-up delay-${(idx + 1) * 100}`}
+                className={`card-lift bg-white rounded-lg p-8 border border-ptw-cream-dark animate-fade-up delay-${((idx % 5) + 1) * 100}`}
               >
                 <div className="w-14 h-14 rounded-full bg-ptw-green/10 flex items-center justify-center text-ptw-gold mb-5">
                   {practice.icon}
@@ -161,7 +161,7 @@ export default function MaintenancePage() {
 
           <div className="max-w-xl mx-auto space-y-4">
             {professionalServices.map((service, idx) => (
-              <div key={service} className={`flex items-center gap-4 bg-ptw-cream rounded-lg p-5 animate-fade-up delay-${(idx + 1) * 100}`}>
+              <div key={service} className={`flex items-center gap-4 bg-ptw-cream rounded-lg p-5 animate-fade-up delay-${((idx % 5) + 1) * 100}`}>
                 <svg className="w-6 h-6 text-ptw-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-5.1a7.065 7.065 0 010-10l.354-.354a.75.75 0 011.06 0l4.773 4.773a3 3 0 010 4.243L11.42 15.17zm0 0L15.17 11.42a3 3 0 014.243 0l4.773 4.773a.75.75 0 010 1.06l-.354.354a7.065 7.065 0 01-10 0l-5.1-5.1" />
                 </svg>
@@ -182,7 +182,7 @@ export default function MaintenancePage() {
 
           <div className="max-w-xl mx-auto space-y-4">
             {petTips.map((tip, idx) => (
-              <div key={tip} className={`flex items-start gap-4 animate-fade-up delay-${(idx + 1) * 100}`}>
+              <div key={tip} className={`flex items-start gap-4 animate-fade-up delay-${((idx % 5) + 1) * 100}`}>
                 <div className="shrink-0 w-8 h-8 rounded-full bg-ptw-gold/20 flex items-center justify-center mt-0.5">
                   <svg className="w-4 h-4 text-ptw-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />

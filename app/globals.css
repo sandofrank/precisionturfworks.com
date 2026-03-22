@@ -69,6 +69,7 @@ body {
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
 
 .card-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;

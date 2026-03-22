@@ -53,7 +53,7 @@ export default function FinancingPage() {
                 {features.map((feature, i) => (
                   <div
                     key={i}
-                    className={`flex items-center gap-4 bg-ptw-cream rounded-lg p-4 shadow-sm animate-fade-up delay-${(i + 1) * 100}`}
+                    className={`flex items-center gap-4 bg-ptw-cream rounded-lg p-4 shadow-sm animate-fade-up delay-${((i % 5) + 1) * 100}`}
                   >
                     <div className="shrink-0 w-10 h-10 rounded-full bg-ptw-green flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 text-ptw-gold">
