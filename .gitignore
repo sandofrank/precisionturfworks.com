@@ -48,3 +48,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Track canonical project docs (reconciled 2026-06-16)
+!/CLAUDE.md
+!/README.md

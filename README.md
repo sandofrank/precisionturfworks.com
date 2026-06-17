@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Precision Turf Works
 
-## Getting Started
+Public marketing website for **Precision Turf Works**, a family-owned artificial-turf installer serving Highland, Redlands, San Bernardino, Riverside, and the Inland Empire (CA). Services covered include residential and commercial turf, putting greens, and turf maintenance/repair.
 
-First, run the development server:
+Built with Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS 4. Companion to the internal `precisionturfworksresource` hub.
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` — App Router pages and metadata routes
+  - Top-level pages: home, `about`, `contact`, `faq`, `financing`, `gallery`, `portfolio`, `products`, `get-a-quote`, `privacy`, `terms`
+  - `services/` — `residential`, `commercial`, `putting-greens`, `maintenance`
+  - `service-areas/` — index plus a dynamic `[city]` route generated from `lib/cities.ts`
+  - `robots.ts`, `sitemap.ts` — generated SEO routes
+  - `layout.tsx`, `globals.css` — root layout and global styles
+- `components/` — shared UI (Navigation, Footer, forms, image gallery, CTAs, structured data, etc.)
+- `lib/` — typed content and configuration:
+  - `constants.ts` — company info, contact details, license, and navigation links
+  - `cities.ts` — service-area data and slug helpers
+  - `products.ts` — turf product catalog and suppliers (AGL, PG, SGW)
+  - `testimonials.ts` — customer reviews
+- `public/images/` — site imagery
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Conventions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Company contact info, license, and navigation live in `lib/constants.ts` — edit there, not inline in pages.
+- Service areas, products, and testimonials are data-driven from `lib/`. Adding a city to `CITIES` automatically generates its page and sitemap entry.
+- Pages export Next.js `metadata`; JSON-LD structured data is rendered via `components/StructuredData.tsx`. Keep `sitemap.ts` updated when adding routes.
+- Contact and quote forms submit via the user's email client (`mailto:`); there is no backend API. Financing uses an embedded Hearth widget.
+- Styling uses the `--color-ptw-*` brand tokens and Teko/Outfit fonts defined in `app/globals.css`.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployed as a standard Next.js application. Run `npm run build` to produce the production build.
