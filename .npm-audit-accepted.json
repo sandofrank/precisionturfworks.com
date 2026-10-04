@@ -1,0 +1,12 @@
+{
+  "accepted": [
+    {
+      "id": "GHSA-vfj7-8cjw-p6xm",
+      "package": "braces",
+      "reason": "Reached only through eslint-config-next (lint toolchain), which never runs on the site; no fixed braces release exists, and npm's suggested fix is a downgrade of eslint-config-next to 14.2.35, which is refused.",
+      "acceptedBy": "Frank",
+      "acceptedOn": "2026-10-04",
+      "recheck": "2026-12-01"
+    }
+  ]
+}
