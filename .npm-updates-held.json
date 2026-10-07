@@ -1,20 +1,14 @@
 {
   "held": [
     {
-      "package": "eslint",
-      "from": "10.0.0",
-      "reason": "ESLint 10 crashes eslint-plugin-react under eslint-config-next, so lint breaks; wait for a plugin release that supports it.",
-      "heldBy": "Frank",
-      "heldOn": "2026-10-04",
-      "recheck": "2026-12-01"
-    },
-    {
       "package": "typescript",
       "from": "7.0.0",
       "reason": "typescript-eslint rejects TypeScript 7, so lint fails at config load; wait until typescript-eslint supports it.",
       "heldBy": "Frank",
       "heldOn": "2026-10-04",
-      "recheck": "2026-12-01"
+      "recheck": "2026-12-01",
+      "rechecked": "2026-10-07",
+      "recheckResult": "TypeScript 7.0.2 retested: eslint config load crashes (typescript-eslint 8.71.1 supports only >=4.8.4 <6.1.0); still blocked."
     },
     {
       "package": "@types/node",
@@ -22,7 +16,9 @@
       "reason": "Node typings must not run ahead of the Vercel Node runtime (24 or lower), or code can compile here and fail live.",
       "heldBy": "Frank",
       "heldOn": "2026-10-04",
-      "recheck": "2026-12-01"
+      "recheck": "2026-12-01",
+      "rechecked": "2026-10-07",
+      "recheckResult": "Vercel project Node is 24.x, so @types/node stays on 24.x (26.6.4 available); still blocked by policy."
     }
   ]
 }
