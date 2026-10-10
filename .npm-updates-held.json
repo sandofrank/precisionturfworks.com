@@ -7,8 +7,8 @@
       "heldBy": "Frank",
       "heldOn": "2026-10-04",
       "recheck": "2026-12-01",
-      "rechecked": "2026-10-07",
-      "recheckResult": "TypeScript 7.0.2 retested: eslint config load crashes (typescript-eslint 8.71.1 supports only >=4.8.4 <6.1.0); still blocked."
+      "rechecked": "2026-10-10",
+      "recheckResult": "TypeScript 7.0.2 retested 2026-10-10: typescript-eslint 8.71.1 (newest) still pins typescript >=4.8.4 <6.1.0, so eslint config load would crash; still blocked."
     },
     {
       "package": "@types/node",
@@ -17,8 +17,8 @@
       "heldBy": "Frank",
       "heldOn": "2026-10-04",
       "recheck": "2026-12-01",
-      "rechecked": "2026-10-07",
-      "recheckResult": "Vercel project Node is 24.x, so @types/node stays on 24.x (26.6.4 available); still blocked by policy."
+      "rechecked": "2026-10-10",
+      "recheckResult": "@types/node 26.6.5 available; Vercel project Node is 24.x so stays on 24.x by policy. Patch 24.19.1 -> 24.19.2 taken 2026-10-10."
     }
   ]
 }
