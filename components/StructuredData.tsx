@@ -5,7 +5,7 @@ const SITE_URL = 'https://precisionturfworks.com';
 
 const localBusinessData = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
   '@id': `${SITE_URL}/#organization`,
   name: COMPANY.name,
   legalName: COMPANY.legalName,
@@ -76,6 +76,28 @@ const localBusinessData = {
         },
       },
     ],
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    telephone: COMPANY.phone,
+    email: COMPANY.email,
+    areaServed: 'US-CA',
+    availableLanguage: 'English',
+  },
+  potentialAction: {
+    '@type': 'ReserveAction',
+    name: 'Request a free quote',
+    description: 'Request a free, no-obligation quote for artificial turf installation.',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${SITE_URL}/get-a-quote`,
+      inLanguage: 'en-US',
+      actionPlatform: [
+        'https://schema.org/DesktopWebPlatform',
+        'https://schema.org/MobileWebPlatform',
+      ],
+    },
   },
   sameAs: [
     COMPANY.social.facebook,
@@ -163,6 +185,50 @@ export function BreadcrumbSchema({
       name: item.name,
       item: item.url,
     })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function ContactPageSchema({
+  name,
+  path,
+  description,
+}: {
+  name: string;
+  path: string;
+  description: string;
+}) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name,
+    description,
+    url: `${SITE_URL}${path}`,
+    about: { '@id': `${SITE_URL}/#organization` },
+    mainEntity: {
+      '@type': 'LocalBusiness',
+      '@id': `${SITE_URL}/#organization`,
+      name: COMPANY.name,
+      telephone: COMPANY.phone,
+      email: COMPANY.email,
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: COMPANY.phone,
+        email: COMPANY.email,
+      },
+    },
+    potentialAction: {
+      '@type': 'ReserveAction',
+      name: 'Request a free quote',
+      target: `${SITE_URL}/get-a-quote`,
+    },
   };
 
   return (

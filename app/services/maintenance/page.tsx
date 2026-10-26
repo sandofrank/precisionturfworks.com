@@ -1,4 +1,5 @@
 import PageHero from '@/components/PageHero';
+import { ServiceSchema } from '@/components/StructuredData';
 import ImageGallery from '@/components/ImageGallery';
 
 
@@ -86,6 +87,7 @@ const galleryImages = [
 export default function MaintenancePage() {
   return (
     <>
+      <ServiceSchema name="Maintenance & Repair" description={metadata.description} />
       <PageHero
         title="Maintenance and Grooming Services"
         subtitle="Keep Your Lawn Looking Its Best"

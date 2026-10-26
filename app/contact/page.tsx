@@ -1,4 +1,5 @@
 import PageHero from '@/components/PageHero';
+import { ContactPageSchema } from '@/components/StructuredData';
 
 import ContactForm from '@/components/ContactForm';
 import { COMPANY } from '@/lib/constants';
@@ -14,6 +15,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
+      <ContactPageSchema name="Contact" path="/contact" description={metadata.description} />
       <PageHero
         title="Contact"
         subtitle="Get in Touch"

@@ -1,4 +1,5 @@
 import PageHero from '@/components/PageHero';
+import { ContactPageSchema } from '@/components/StructuredData';
 
 import QuoteForm from '@/components/QuoteForm';
 import { COMPANY } from '@/lib/constants';
@@ -14,6 +15,7 @@ export const metadata = {
 export default function GetAQuotePage() {
   return (
     <>
+      <ContactPageSchema name="Get a Free Quote" path="/get-a-quote" description={metadata.description} />
       <PageHero
         title="Get a Quote"
         image="/images/contact-header.jpg"

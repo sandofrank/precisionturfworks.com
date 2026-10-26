@@ -1,4 +1,5 @@
 import PageHero from '@/components/PageHero';
+import { ServiceSchema } from '@/components/StructuredData';
 import ImageGallery from '@/components/ImageGallery';
 
 
@@ -108,6 +109,7 @@ const galleryImages = [
 export default function CommercialPage() {
   return (
     <>
+      <ServiceSchema name="Commercial Turf Installation" description={metadata.description} />
       <PageHero
         title="Commercial Artificial Turf"
         subtitle="Smart, Durable, and Attractive Solutions for Your Business"

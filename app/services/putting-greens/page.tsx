@@ -1,4 +1,5 @@
 import PageHero from '@/components/PageHero';
+import { ServiceSchema } from '@/components/StructuredData';
 import ImageGallery from '@/components/ImageGallery';
 
 
@@ -106,6 +107,7 @@ const galleryImages = [
 export default function PuttingGreensPage() {
   return (
     <>
+      <ServiceSchema name="Putting Green Installation" description={metadata.description} />
       <PageHero
         title="Golf Greens"
         subtitle="Precision, Performance, and Playability"
