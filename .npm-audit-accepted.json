@@ -7,6 +7,14 @@
       "acceptedBy": "Frank",
       "acceptedOn": "2026-10-04",
       "recheck": "2026-12-01"
+    },
+    {
+      "id": "GHSA-g3hv-75wg-m249",
+      "package": "minimatch",
+      "reason": "Reached only through ESLint and its plugins (eslint, eslint-config-next) on the developer's machine; nothing reaches the deployed site. The fix exists only in minimatch 11.0.1+, while the ESLint plugins pin older minimatch majors, so no fixed version fits; npm's suggested fix is a downgrade of eslint to 4.0.0, which is refused.",
+      "acceptedBy": "Frank",
+      "acceptedOn": "2026-10-31",
+      "recheck": "2026-12-01"
     }
   ]
 }
